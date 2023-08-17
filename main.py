@@ -20,20 +20,22 @@ def create_item(to_do_list):
     are_notes_needed = input("Would you like to add notes to this to do list item? Y or N.")
     if are_notes_needed == "Y":
         new_item_value = input("Type the notes that you would like to include for this to do list item.")
-    
-    to_do_list[new_item_key] = new_item_value
+        to_do_list[new_item_key] = new_item_value
+    else:
+        to_do_list[new_item_key] = ""
 
 # read an iten from to do list
 def read_item(to_do_list, index):
     print(to_do_list(index))
 
 # update item on to do list
-def update_item(to_do_list, index):
+def update_item(to_do_list, key):
     print()
 
 # delete item from to do list
 def delete_item(to_do_list):
-
+    key = input("which item do you want to delete from the list? ")
+    del to_do_list[key]
 
 # print entire to do list
 def print_items(to_do_list):
