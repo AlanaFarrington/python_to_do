@@ -6,10 +6,11 @@ def print_content_manager(exit):
               PLEASE SELECT AN ACTION
               1. Add an item to your To Do List
               2. Read an item on your To Do List
-              3. update an item on your To Do List
+              3. Update an item on your To Do List
               4. Delete and item from your To Do List
-              5. Print your entire To Do List
-              6. Exit To Do List""")
+              5. Print all items on your To Do List
+              6. Print all items and notes on your To Do List
+              7. Exit To Do List""")
         action = print("Which action would you like to perform? Type the relevant number.")
         return int(action)
 
@@ -35,8 +36,11 @@ def delete_item(to_do_list):
 
 
 # print entire to do list
+def print_items(to_do_list):
+    print(to_do_list.keys())
+
 def print_entire_list(to_do_list):
-    print(to_do_list)
+    print(to_do_list.items())
 
 print_list()
 
