@@ -11,7 +11,7 @@ def print_content_manager(exit):
               5. Print all items on your To Do List
               6. Print all items and notes on your To Do List
               7. Exit To Do List""")
-        action = print("Which action would you like to perform? Type the relevant number.")
+        action = print("Which action would you like to perform? Type the relevant number. ")
         return int(action)
 
 # create new item on to do list
@@ -29,8 +29,10 @@ def read_item(to_do_list, index):
     print(to_do_list(index))
 
 # update item on to do list
-def update_item(to_do_list, key):
-    print()
+def update_item(to_do_list):
+    key = input("Which item would you like to update? ")
+    new_value = input("update the notes for this item. ")
+    to_do_list[key] = new_value
 
 # delete item from to do list
 def delete_item(to_do_list):
@@ -38,13 +40,11 @@ def delete_item(to_do_list):
     del to_do_list[key]
 
 # print entire to do list
-def print_items(to_do_list):
+def print_keys(to_do_list):
     print(to_do_list.keys())
 
 def print_entire_list(to_do_list):
     print(to_do_list.items())
-
-print_list()
 
 # exit to do list
 def exit_to_do_list(exit):
@@ -57,4 +57,29 @@ def run_to_do_list():
     to_do_list = {"Go shopping": ["milk", "eggs", "bread"]}
     exit = False
     while exit == False:
-        action_required = print_content_manager()
+        action_selected = print_content_manager(exit)
+        if action_selected != "7":
+            match action_selected:
+                case 1:
+                    print("You have chosen add an item")
+                    create_item(to_do_list)
+                case 2:
+                    print("you would like to read an item")
+                    read_item(to_do_list)
+                case 3:
+                    print("you would like to update an item")
+                    update_item(to_do_list)
+                case 4:
+                    print("you would like to delete")
+                    delete_item(to_do_list)
+                case 5:
+                    print("you would like to print all items")
+                    print_keys(to_do_list)
+                case 6:
+                    print("you would like to print items and notes")
+                    print_entire_list(to_do_list)
+                case _:
+                    print("invalid choice")
+        else:
+            print("Exiting your to do list...Goodbye!")
+            break
