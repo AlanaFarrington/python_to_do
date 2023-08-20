@@ -1,19 +1,13 @@
-to_do_list = {"Go shopping": ["milk", "eggs", "bread"], "call hospital": "Ask about headaches and if next MRI will have contrast"}
+to_do_list = {"go shopping": ["milk", "eggs", "bread"], "call hospital": "MRI", "order birthday present": "book or tray"}
 
-print(to_do_list.keys())
-print(to_do_list.items())
+# for key in to_do_list.keys():
+#     print(key)
+    
+# print(to_do_list.keys())
 
-def create_item(to_do_list):
-    new_item_key = input("What is the title of your new list item? ")
-    are_notes_needed = input("Would you like to add notes to this to do list item? Y or N.")
-    if are_notes_needed == "Y":
-        new_item_value = input("Type the notes that you would like to include for this to do list item.")
-        to_do_list[new_item_key] = new_item_value
-    else:
-        to_do_list[new_item_key] = ""
+key = input("Which item would you like to update? ")
+new_value = input("update the notes for this item. ")
+to_do_list[key].append(new_value)
 
-create_item(to_do_list)
-print(to_do_list)
-
-del to_do_list["call hospital"]
-print(to_do_list)
+for key,value in to_do_list.items():
+    print(key, ":", value)
