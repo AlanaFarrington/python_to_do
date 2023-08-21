@@ -28,11 +28,14 @@ def read_list(to_do_list):
     if (what_to_read == "Y") or (what_to_read == "y"):
         for key,value in to_do_list.items():
             print(key, ":", value)
-    elif (what_to_read == "N") or (what_to_read == "n"):
+        return
+        
+    if (what_to_read == "N") or (what_to_read == "n"):
         for key in to_do_list.keys():
             print(key)
-    else:
-        print("invalid input")
+        return
+        
+    print("invalid input")
         
 # create new item on to do list
 def create_item(to_do_list):
@@ -81,20 +84,20 @@ def run_to_do_list():
         action_selected = convert_action_to_int(user_action_str)
 
         # match case for given action
-        if action_selected != 5:
-            match action_selected:
-                case 1:
-                    read_list(to_do_list)
-                case 2:
-                    create_item(to_do_list)
-                case 3:
-                    update_item(to_do_list)
-                case 4:
-                    delete_item(to_do_list)
-                case _:
-                    print("invalid choice")
-        else:
-            exit = exit_to_do_list()
-            break
+        # if action_selected:
+        match action_selected:
+            case 1:
+                read_list(to_do_list)
+            case 2:
+                create_item(to_do_list)
+            case 3:
+                update_item(to_do_list)
+            case 4:
+                delete_item(to_do_list)
+            case 5:
+                exit = exit_to_do_list()
+                break
+            case _:
+                print("invalid choice")
 
 run_to_do_list()
